@@ -1,17 +1,7 @@
 # Intel Low Power Mode Daemon as a NixOS module
 
 This flake provides a Nix wrapper for the
-[`intel-lpmd`](https://github.com/dmfrpro/intel-lpmd) daemon.
-
-This fork includes:
-
-- **CachyOS patches** addressing:
-  - [#110](https://github.com/intel/intel-lpmd/issues/110)
-  - [#106](https://github.com/intel/intel-lpmd/issues/106)
-  - [#101](https://github.com/intel/intel-lpmd/issues/101)
-
-- **[@octomike](https://github.com/octomike/intel-lpmd) patch** addressing:
-  - [#71](https://github.com/intel/intel-lpmd/issues/71)
+[`intel-lpmd`](https://github.com/intel/intel-lpmd) daemon.
 
 ## Installation as NixOS module
 

@@ -2,13 +2,13 @@
 
 pkgs.stdenv.mkDerivation rec {
   pname = "intel-lpmd";
-  version = "0.1.1";
+  version = "unstable-20260413";
 
   src = pkgs.fetchFromGitHub {
-    owner = "dmfrpro";
+    owner = "intel";
     repo = pname;
-    rev = "v${version}";
-    sha256 = "sha256-DNApZY0FDFeOzMITcIYnmZd6lnz/5+HFqaeu9/O2IRk=";
+    rev = "876db2042df2c168a7ff68f91c2f8c152f4e99a8";
+    sha256 = "sha256-6maTFZL7cfvXg89bUNggj9X2HBBpVSVZmrIroM9zqYc=";
   };
 
   nativeBuildInputs = with pkgs; [
@@ -32,7 +32,7 @@ pkgs.stdenv.mkDerivation rec {
   ];
 
   configureFlags = [
-    "--with-dbus-sys-dir=$out/share/dbus-1/system-services/"
+    "--with-dbus-sys-dir=${placeholder "out"}/share/dbus-1/system-services/"
     "--without-systemdsystemunitdir"
     "--localstatedir=/var"
     "--sysconfdir=/etc"
