@@ -2,13 +2,13 @@
 
 pkgs.stdenv.mkDerivation rec {
   pname = "intel-lpmd";
-  version = "unstable-20260413";
+  version = "unstable-20260608";
 
   src = pkgs.fetchFromGitHub {
     owner = "intel";
     repo = pname;
-    rev = "876db2042df2c168a7ff68f91c2f8c152f4e99a8";
-    sha256 = "sha256-6maTFZL7cfvXg89bUNggj9X2HBBpVSVZmrIroM9zqYc=";
+    rev = "c44813f5ecdb13048a7942567fe8a81710200229";
+    sha256 = "sha256-+9tvIZfNhqoHw8d90H9ZvL3yo7M+vlxIJwo2K0/1/9w=";
   };
 
   nativeBuildInputs = with pkgs; [
