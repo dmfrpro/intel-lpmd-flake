@@ -2,13 +2,13 @@
 
 pkgs.stdenv.mkDerivation rec {
   pname = "intel-lpmd";
-  version = "unstable-20260608";
+  version = "unstable-20260923";
 
   src = pkgs.fetchFromGitHub {
     owner = "intel";
     repo = pname;
-    rev = "c44813f5ecdb13048a7942567fe8a81710200229";
-    sha256 = "sha256-+9tvIZfNhqoHw8d90H9ZvL3yo7M+vlxIJwo2K0/1/9w=";
+    rev = "cdc762cf525fcc863fb8d6f897a677a2d2051bd2";
+    sha256 = "sha256-hNpcDia5v/RBOuPtdNv4MjS9b19qn58Sim/0k+sy6d8=";
   };
 
   nativeBuildInputs = with pkgs; [
@@ -39,7 +39,7 @@ pkgs.stdenv.mkDerivation rec {
   ];
 
   patchPhase = ''
-    sed -i '30,34d' data/Makefile.am
+    sed -i '30,38d' data/Makefile.am
   '';
 
   postInstall = ''

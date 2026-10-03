@@ -39,7 +39,7 @@ in
       meteorLake = mkEnableOption "Meteor Lake configuration (intel_lpmd_config_F6_M170.xml)";
       lunarLake = mkEnableOption "Lunar Lake configuration (intel_lpmd_config_F6_M189.xml)";
       pantherLake = mkEnableOption "Panther Lake configuration (intel_lpmd_config_F6_M204.xml)";
-      experimental = mkEnableOption "Experimental configuration (experimental.xml)";
+      experimental = mkEnableOption "Experimental configuration (intel_lpmd_config_experimental.xml)";
       custom = mkOption {
         type = types.nullOr (
           types.submodule {
@@ -108,14 +108,18 @@ in
             }
           else if cfg.config.experimental then
             {
-              source = "${pkg}/share/xml/experimental.xml";
-              targetName = "experimental.xml";
+              source = "${pkg}/share/xml/intel_lpmd_config_experimental.xml";
+              targetName = "intel_lpmd_config_experimental.xml";
             }
           else
             throw "Unreachable: assertion guarantees a valid config";
       in
       {
         "intel_lpmd/${configChoice.targetName}".source = configChoice.source;
+
+        # https://github.com/intel/intel-lpmd/commit/14ae1eaf1ed005a490bff12a37c546a570fa3570
+        "intel_lpmd/process_cpuset.xml".source = "${pkg}/share/xml/process_cpuset.xml";
+        # "intel_lpmd/process_cpuset_user.xml".source = "${pkg}/share/xml/process_cpuset_user.xml";
       };
 
     systemd.services.intel-lpmd = {
